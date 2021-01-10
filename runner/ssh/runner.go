@@ -2,7 +2,7 @@
 // Copyright (c) 2019 Stefaan Coussement
 // MIT License
 //
-// more info: https://github.com/stefaanc/golang-exec
+// more info: https://github.com/elebertus/golang-exec
 //
 package ssh
 
@@ -20,7 +20,7 @@ import (
 	"golang.org/x/crypto/ssh"
 	"golang.org/x/crypto/ssh/knownhosts"
 
-	"github.com/stefaanc/golang-exec/script"
+	"github.com/elebertus/golang-exec/script"
 )
 
 //------------------------------------------------------------------------------
@@ -93,7 +93,6 @@ func New(connection interface{}, s *script.Script, arguments interface{}) (*Runn
 	} else {
 		authMethods = append(authMethods, c.PubKey)
 	}
-
 	config := &ssh.ClientConfig{
 		User: c.User,
 		Auth: authMethods,
@@ -208,16 +207,19 @@ func toConnection(connection interface{}) *Connection {
 func (c *Connection) loadPubKey(path string) error {
 	_, err := os.Stat(path)
 	if err != nil {
+		fmt.Println(err)
 		return err
 	}
 	kf, err := ioutil.ReadFile(path)
 	if err != nil {
+		fmt.Println(err)
 		return err
 	}
 	// @elebertus note that this doesn't support password protected keys
 	// while crypto/ssh supports that, no need for it right now.
 	sig, err := ssh.ParsePrivateKey(kf)
 	if err != nil {
+		fmt.Println(err)
 		return err
 	}
 	c.PubKey = ssh.PublicKeys(sig)

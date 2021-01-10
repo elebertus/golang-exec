@@ -2,7 +2,7 @@
 # Copyright (c) 2019 Stefaan Coussement
 # MIT License
 #
-# more info: https://github.com/stefaanc/psconsole
+# more info: https://github.com/elebertus/psconsole
 #
 # use:
 #

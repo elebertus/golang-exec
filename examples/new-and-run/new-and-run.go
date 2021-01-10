@@ -7,8 +7,8 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/stefaanc/golang-exec/runner"
-	"github.com/stefaanc/golang-exec/script"
+	"github.com/elebertus/golang-exec/runner"
+	"github.com/elebertus/golang-exec/script"
 	"golang.org/x/crypto/ssh"
 )
 

@@ -2,7 +2,7 @@
 // Copyright (c) 2019 Stefaan Coussement
 // MIT License
 //
-// more info: https://github.com/stefaanc/golang-exec
+// more info: https://github.com/elebertus/golang-exec
 //
 package local
 
@@ -14,7 +14,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/stefaanc/golang-exec/script"
+	"github.com/elebertus/golang-exec/script"
 )
 
 //------------------------------------------------------------------------------
@@ -78,8 +78,7 @@ func New(connection interface{}, s *script.Script, arguments interface{}) (*Runn
 	if args[0] == "cmd" {
 		// cmd has argument-escaping rules that are different from other programs, so needs different treatment
 		cmd = exec.CommandContext(ctx, args[0])
-		// @elebertus no idea if the api has changed over time for this or what but syscall.SysProcAttr
-		// has no field `CmdLine`
+		// cmd.SysProcAttr =
 		// cmd.SysProcAttr = &syscall.SysProcAttr{
 		// 	CmdLine: " " + strings.Join(args[1:], " "),
 		// }

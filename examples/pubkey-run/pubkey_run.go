@@ -5,10 +5,10 @@ import (
 	"flag"
 	"log"
 
+	"github.com/elebertus/golang-exec/runner"
+	"github.com/elebertus/golang-exec/runner/ssh"
+	"github.com/elebertus/golang-exec/script"
 	"github.com/mitchellh/go-homedir"
-	"github.com/stefaanc/golang-exec/runner"
-	"github.com/stefaanc/golang-exec/runner/ssh"
-	"github.com/stefaanc/golang-exec/script"
 )
 
 const (
